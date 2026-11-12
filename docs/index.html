@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Your Thunderbird contacts, one shortcut away. A local-first, open-source extension for PowerToys Command Palette.">
+  <meta name="theme-color" content="#121e2b">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'">
+  <title>Contact Palette — Your contacts. One shortcut away.</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header"><div class="wrap nav">
+    <a class="brand" href="./"><img src="assets/logo.png" alt="" width="36" height="36">Contact Palette<span class="brand-dot">.</span></a>
+    <nav aria-label="Main navigation"><a href="#how-it-works">How it works</a><a href="#privacy">Privacy</a><a class="nav-github" href="https://github.com/reyo/contact-palette">GitHub <span aria-hidden="true">↗</span></a></nav>
+  </div></header>
+  <main id="main">
+    <section class="hero"><div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> FOR POWERTOYS COMMAND PALETTE</p>
+        <h1>Your contacts.<br>One shortcut<br><span>away.</span></h1>
+        <p class="hero-description">Find the person. Copy the detail.<br>Keep your Thunderbird contacts close,<br>without breaking your flow.</p>
+        <div class="hero-actions"><a class="button mint" href="#get-started">Try the preview <span aria-hidden="true">→</span></a><a class="text-link" href="https://github.com/reyo/contact-palette">Explore the source <span aria-hidden="true">↗</span></a></div>
+        <p class="hero-note">Windows 11 <span>·</span> Free &amp; open source <span>·</span> MIT licensed</p>
+      </div>
+      <div class="demo-shell">
+        <div class="demo-caption"><span>LESS SEARCHING. MORE DOING.</span><span class="live-label"><i></i> Interactive preview</span></div>
+        <div class="palette" aria-label="Interactive product illustration with fictional contacts">
+          <div class="palette-top"><img src="assets/logo.png" width="24" height="24" alt=""><span>Thunderbird contacts</span><span class="palette-dots" aria-hidden="true">•••</span></div>
+          <label class="demo-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 4.5 4.5"></path></svg><span class="sr-only">Search fictional contacts</span><input id="demo-search" placeholder="Search name, email, or phone…" autocomplete="off" spellcheck="false"><kbd>⌕</kbd></label>
+          <div class="palette-body">
+            <div class="demo-results"><p class="tiny-label">CONTACTS <span id="result-count">3</span></p><div id="demo-list" role="listbox" aria-label="Fictional contact results"></div><p id="demo-empty" hidden>No matching contacts.</p></div>
+            <div class="demo-detail"><div id="detail-avatar" class="avatar portrait sage" aria-hidden="true">AM</div><h2 id="detail-name">Alex Morgan</h2><p class="detail-role" id="detail-role">Designer · Studio North</p><div class="detail-field"><span>Email</span><span id="detail-email">alex@example.com</span></div><div class="detail-field"><span>Phone</span><span id="detail-phone">+1 202 555 0142</span></div><div class="detail-field"><span>Address book</span><span>Personal contacts</span></div><button class="demo-copy" id="demo-copy" type="button">Copy email <span aria-hidden="true">↵</span></button></div>
+          </div>
+          <div class="palette-footer"><span><kbd>↑</kbd><kbd>↓</kbd> Navigate</span><span><kbd>↵</kbd> Copy email</span><span class="local-tag"><i></i> On your PC</span></div>
+        </div>
+        <p class="demo-disclaimer">Try a search. Select a contact. All demo data is fictional.<br>This is an interactive illustration, not a screenshot of the app.</p>
+      </div>
+    </div><div class="wrap hero-bottom"><span>A SMALL EXTENSION. A SHORTER PATH.</span><span>Thunderbird <span class="connection" aria-hidden="true">────────</span> Command Palette</span></div></section>
+
+    <section class="workflow wrap section" id="how-it-works">
+      <div class="section-heading"><p class="eyebrow ink">FAMILIAR CONTACTS. FASTER ACCESS.</p><h2>From a name<br>to the next thing.</h2><p>No address book window to hunt down.<br>No extra Thunderbird add-on to install.</p></div>
+      <div class="steps">
+        <article><span class="step-number">01</span><div class="step-icon keys" aria-hidden="true"><kbd>Win</kbd><span>+</span><kbd>Alt</kbd><span>+</span><kbd>Space</kbd></div><h3>Open your palette</h3><p>Launch PowerToys Command Palette and choose <strong>Search Thunderbird contacts</strong>.</p></article>
+        <article><span class="step-number">02</span><div class="step-icon search-example" aria-hidden="true"><span>⌕</span> Alex<span class="caret"></span></div><h3>Find your person</h3><p>Search by name, email, or phone. Preview their details and any photo already stored locally.</p></article>
+        <article><span class="step-number">03</span><div class="step-icon copy-example" aria-hidden="true"><span>alex@example.com</span><span class="copied-mark">✓</span></div><h3>Take what you need</h3><p>Press Enter to copy. Choose another field from the contact menu, or start an email in your mail app.</p></article>
+      </div>
+    </section>
+
+    <section class="privacy-section" id="privacy"><div class="wrap privacy-grid"><div><p class="eyebrow">LOCAL BY DESIGN</p><h2>Your address book.<br><span>Still yours.</span></h2><p class="privacy-intro">Contact Palette reads what Thunderbird has already saved on your computer. Your contacts don’t need to take a detour through someone else’s server.</p><a class="text-link" href="privacy.html">Read the privacy policy <span aria-hidden="true">↗</span></a></div><div class="privacy-list"><article><span aria-hidden="true">↳</span><div><h3>Read-only access</h3><p>Searches your local SQLite address books without editing your Thunderbird contacts.</p></div></article><article><span aria-hidden="true">◎</span><div><h3>No telemetry. No contact uploads.</h3><p>No tracking, account sign-in, or remote photo downloads in the extension.</p></div></article><article><span aria-hidden="true">⇄</span><div><h3>Your synced contacts, too</h3><p>Includes CardDAV contacts already synchronized locally by Thunderbird. No separate server connection.</p></div></article></div></div></section>
+
+    <section class="get-started wrap section" id="get-started"><div class="install-intro"><p class="eyebrow ink">GET STARTED</p><h2>Small project.<br>Open possibilities.</h2><p>Contact Palette is a free, independent project. Explore the code, try the development preview, or help make it better.</p><a class="button dark" href="https://github.com/reyo/contact-palette">View on GitHub <span aria-hidden="true">↗</span></a><p class="release-note"><span class="status-dot"></span> Developer preview · 0.1.6</p></div><div class="install-card"><div class="install-card-head"><span>For early explorers</span><span class="outline-badge">BUILD FROM SOURCE</span></div><h3>Try the development preview</h3><p>You’ll need Windows 11, PowerToys with Command Palette enabled, and Thunderbird with local address books.</p><ol><li>Install the .NET 10 SDK and Windows SDK tools as described in the README.</li><li>Enable Windows Developer Mode and clone the repository.</li><li>Run the local installer from the project directory:</li></ol><div class="code-row"><code>.\install-local.ps1</code><button id="copy-install" type="button" aria-label="Copy local installer command">Copy</button></div><p class="install-warning">The current preview is a development installation. Microsoft Store and WinGet releases are not available yet.</p><a class="inline-link" href="https://github.com/reyo/contact-palette#try-it-locally-on-windows-11">Complete setup instructions <span aria-hidden="true">→</span></a></div></section>
+
+    <section class="closing wrap"><p>Less switching windows.<br><span>More staying in the flow.</span></p><a href="https://github.com/reyo/contact-palette/issues">Have an idea? Let’s hear it <span aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer class="footer"><div class="wrap footer-top"><a class="brand" href="./"><img src="assets/logo.png" alt="" width="28" height="28">Contact Palette<span class="brand-dot">.</span></a><nav aria-label="Footer navigation"><a href="https://github.com/reyo/contact-palette">Source</a><a href="https://github.com/reyo/contact-palette/issues">Support</a><a href="privacy.html">Privacy</a><a href="https://github.com/reyo/contact-palette/blob/main/LICENSE">MIT License</a></nav></div><div class="wrap footer-bottom"><p>Made by <a href="https://github.com/reyo">reyo</a>. Independent, free, and open source.</p><p>Not affiliated with Mozilla Thunderbird or Microsoft PowerToys.</p></div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body></html>

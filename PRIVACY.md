@@ -19,3 +19,11 @@ request internetClient, but that omission is not a network restriction for a ful
 process. The offline behavior is implemented by the application code.
 
 This policy must be reviewed before adding network features or data collection.
+
+## Project website
+
+The GitHub Pages website uses fictional demo contacts and has no analytics, external
+fonts, advertising, or cookies set by its own code. It never accesses address books.
+Copy buttons write only the displayed sample value to the visitor's clipboard.
+GitHub, as the hosting provider, may process technical request information such as IP
+addresses under its own privacy policy. See the [website privacy policy](https://reyo.github.io/contact-palette/privacy.html).

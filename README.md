@@ -3,6 +3,8 @@
 Search local Mozilla Thunderbird contacts from Microsoft PowerToys Command Palette.
 An independent MIT-licensed project. Not affiliated with Mozilla or Microsoft.
 
+**[Visit the project website](https://reyo.github.io/contact-palette/)** · [Privacy policy](https://reyo.github.io/contact-palette/privacy.html)
+
 ## Local preview 0.1.6
 
 - Automatically discovers standard Thunderbird profiles and local/CardDAV SQLite books.

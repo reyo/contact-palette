@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://reyo.github.io/contact-palette/sitemap.xml
