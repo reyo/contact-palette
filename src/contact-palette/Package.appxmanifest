@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package
+    xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+    xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+    xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+    xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10"
+    xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+    IgnorableNamespaces="uap uap3 rescap">
+    <Identity Name="ContactPalette.Development" Publisher="CN=ContactPaletteDevelopment" Version="0.1.6.0" />
+    <Properties>
+        <DisplayName>Contact Palette</DisplayName>
+        <PublisherDisplayName>Contact Palette Development</PublisherDisplayName>
+        <Logo>Assets\StoreLogo.png</Logo>
+    </Properties>
+    <Dependencies>
+        <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26100.0" />
+    </Dependencies>
+    <Resources>
+        <Resource Language="x-generate" />
+    </Resources>
+    <Applications>
+        <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">
+            <uap:VisualElements AppListEntry="none" DisplayName="Contact Palette" Description="Search local Thunderbird contacts from PowerToys Command Palette" BackgroundColor="transparent" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png">
+                <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
+                <uap:SplashScreen Image="Assets\SplashScreen.png" />
+            </uap:VisualElements>
+            <Extensions>
+                <com:Extension Category="windows.comServer">
+                    <com:ComServer>
+                        <com:ExeServer Executable="contact-palette.exe" Arguments="-RegisterProcessAsComServer" DisplayName="Contact Palette">
+                            <com:Class Id="bff97378-7082-4702-b907-514039b3e61b" DisplayName="Contact Palette" />
+                        </com:ExeServer>
+                    </com:ComServer>
+                </com:Extension>
+                <uap3:Extension Category="windows.appExtension">
+                    <uap3:AppExtension Name="com.microsoft.commandpalette" Id="ContactPaletteExtension" PublicFolder="Public" DisplayName="Contact Palette" Description="Search Thunderbird contacts locally">
+                        <uap3:Properties>
+                            <CmdPalProvider>
+                                <Activation>
+                                    <CreateInstance ClassId="bff97378-7082-4702-b907-514039b3e61b" />
+                                </Activation>
+                                <SupportedInterfaces><Commands /></SupportedInterfaces>
+                            </CmdPalProvider>
+                        </uap3:Properties>
+                    </uap3:AppExtension>
+                </uap3:Extension>
+            </Extensions>
+        </Application>
+    </Applications>
+    <Capabilities>
+        <rescap:Capability Name="runFullTrust" />
+    </Capabilities>
+</Package>

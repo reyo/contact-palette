@@ -1,0 +1,15 @@
+**/bin/
+**/obj/
+.vs/
+*.msix
+*.msixbundle
+*.msixupload
+*.pfx
+*.cer
+*.user
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+artifacts/
+work/
+# Package launch settings and publish profiles must stay tracked.

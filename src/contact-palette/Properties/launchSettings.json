@@ -1,0 +1,8 @@
+{
+    "profiles": {
+        "Contact Palette (Package)": {
+            "commandName": "MsixPackage",
+            "doNotLaunchApp": true
+        }
+    }
+}

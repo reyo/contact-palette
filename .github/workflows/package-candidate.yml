@@ -1,0 +1,34 @@
+name: Build unsigned Store candidate
+on:
+    workflow_dispatch:
+        inputs:
+            version:
+                description: Four-part Store version ending in .0
+                required: true
+                default: 0.1.6.0
+                type: string
+permissions:
+    contents: read
+jobs:
+    package:
+        runs-on: windows-latest
+        timeout-minutes: 20
+        env:
+            PACKAGE_VERSION: ${{ inputs.version }}
+            STORE_IDENTITY_NAME: ${{ vars.STORE_IDENTITY_NAME }}
+            STORE_PUBLISHER: ${{ vars.STORE_PUBLISHER }}
+            STORE_PUBLISHER_DISPLAY_NAME: ${{ vars.STORE_PUBLISHER_DISPLAY_NAME }}
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-dotnet@v4
+              with:
+                  dotnet-version: 10.0.x
+            - name: Build only; do not sign or publish
+              shell: pwsh
+              run: |
+                  ./build-extension.ps1 -Version $env:PACKAGE_VERSION -IdentityName $env:STORE_IDENTITY_NAME -Publisher $env:STORE_PUBLISHER -PublisherDisplayName $env:STORE_PUBLISHER_DISPLAY_NAME
+            - uses: actions/upload-artifact@v4
+              with:
+                  name: ContactPalette-store-unsigned
+                  path: artifacts/*
+                  if-no-files-found: error

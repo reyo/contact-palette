@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <RootNamespace>contact_palette</RootNamespace>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <WindowsSdkPackageVersion>10.0.26100.87</WindowsSdkPackageVersion>
+        <!-- Use the reference pack's metadata so a machine-wide Windows SDK is not needed. -->
+        <CsWinRTWindowsMetadata>&quot;$(NuGetPackageRoot)\microsoft.windows.sdk.net.ref\$(WindowsSdkPackageVersion)\winmd&quot;</CsWinRTWindowsMetadata>
+        <TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
+        <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
+        <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
+        <RuntimeIdentifiers>win-x64;win-arm64</RuntimeIdentifiers>
+        <Platforms>x64;ARM64</Platforms>
+        <PlatformTarget>$(Platform)</PlatformTarget>
+        <PublishProfile Condition="'$(Platform)' == 'x64'">win-x64.pubxml</PublishProfile>
+        <PublishProfile Condition="'$(Platform)' == 'ARM64'">win-arm64.pubxml</PublishProfile>
+        <EnableMsixTooling Condition="'$(EnableMsixTooling)' == ''">true</EnableMsixTooling>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <LangVersion>latest</LangVersion>
+        <PublishSingleFile>false</PublishSingleFile>
+        <PublishTrimmed>false</PublishTrimmed>
+        <AppxPackageVersion>0.1.6.0</AppxPackageVersion>
+        <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
+    </PropertyGroup>
+    <ItemGroup>
+        <Content Include="Assets\*.png" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+        <Manifest Include="$(ApplicationManifest)" />
+        <ProjectCapability Include="Msix" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CommandPalette.Extensions" Version="0.12.260812002" />
+        <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.3.1" />
+        <PackageReference Include="Shmuelie.WinRTServer" Version="2.1.1" />
+        <PackageReference Include="Microsoft.Windows.SDK.BuildTools.MSIX" Version="1.7.251221100" PrivateAssets="all">
+            <ExcludeAssets Condition="'$(EnableMsixTooling)' != 'true'">build;buildTransitive</ExcludeAssets>
+        </PackageReference>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\contact-palette-core\contact-palette-core.csproj" />
+    </ItemGroup>
+</Project>
